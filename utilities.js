@@ -1,10 +1,11 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
+
 require('dotenv').config();
+const uri = process.env.mongodb;
 
 async function getAllPeople() {
     console.log('in getAllPeople')
 
-  const uri = process.env.mongodb;
   const client = new MongoClient(uri);
 
   
@@ -28,5 +29,24 @@ async function getAllPeople() {
   }
 }
 
+async function getOnePerson(id){
+    const client = new MongoClient(uri);
+    console.log(id)
 
-module.exports = {getAllPeople}
+    try {
+      await client.connect();
+  
+      const database = client.db('cse-341');
+      const collection = database.collection('contacts');
+      const query = { _id: new ObjectId(id) };
+      const contact = await collection.findOne(query);
+
+      return contact
+  
+    } catch (error) {
+      console.error('Error:', error);
+    }
+}
+
+
+module.exports = {getAllPeople, getOnePerson}

@@ -8,8 +8,11 @@ baseController.showAllPeople =  async function(req, res) {
      res.send(peopleListed)
 }
 
-baseController.buildHome =  function(req, res) {
-    res.send('Home Page')
+baseController.findOne =  async function(req, res) {
+    let personId = req.params._id;
+    let foundPerson = await utils.getOnePerson(personId);
+    console.log(foundPerson)
+    res.send(foundPerson || null)
 }
 
 
