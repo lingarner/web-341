@@ -1,17 +1,12 @@
+const utils = require('../utilities')
 const baseController = {}
 
-baseController.buildMe =  function(req, res) {
-    res.send('Lindsay Garner')
-}
 
-baseController.buildYou =  function(req, res) {
-    res.send('Your name here')
+baseController.showAllPeople =  async function(req, res) {
+     let peopleListed = await utils.getAllPeople();
+     console.log(peopleListed)
+     res.send(peopleListed)
 }
-
-baseController.buildPeople =  function(req, res) {
-    res.send('See some Peoples')
-}
-
 
 baseController.buildHome =  function(req, res) {
     res.send('Home Page')
