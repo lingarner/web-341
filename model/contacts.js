@@ -62,7 +62,7 @@ async function insertOne() {
 
     
     const dataInput = {
-      firstName: "Lindsay",
+      firstName: "LINDSAY",
       lastName: "GARNER",
       email: "joe@gmail.com",
       birthday: "June 19, 1996",
