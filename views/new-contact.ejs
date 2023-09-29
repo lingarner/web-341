@@ -1,0 +1,26 @@
+<h1>Create New Contact</h1>
+
+<br>
+
+<form action="/contacts/newContact" method="post"> 
+    <p>All inputs are required.</p>
+    <div id="center-form-content">   
+
+        <label class="required" for="firstName">First Name</label><br>
+        <input type="text" id="firstName" name="firstName" placeholder="MIN 1 Character"  required><br>
+
+        <label class="required" for="lastName">Last Name</label><br>
+        <input type="text" id="lastName" name="lastName" placeholder="MIN 3 Characters" required><br>
+
+        <label class="required" for="email">Email</label> <br>
+        <input id="email" type="email" name="email" placeholder="Must be a valid email" required ></input><br>
+
+        <label class="required" for="birthday">Birthday</label><br>
+        <input type="date" id="birthday" name="birthday" required><br>
+
+        <label class="required" for="favoriteColor">Favorite Color</label><br>
+        <input type="text" id="favoriteColor" name="favoriteColor" required><br>
+
+        <input type="submit" value="Create New Contact" id="register">
+    </div>
+</form>

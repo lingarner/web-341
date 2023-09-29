@@ -9,6 +9,9 @@ const express = require('express');
 const app = express();
 const  baseController = require('./controllers/baseController')
 
+app.set('view engine', 'ejs');
+
+
 
 /* ***********************
 * Routes
