@@ -18,7 +18,7 @@ baseController.insertNew = async function(req, res){
     let newContact = await utils.insertOne();
     console.log(newContact)
     if (newContact) {
-        res.status(201).send();
+        res.status(201).send(newContact.insertedId);
       } else {
         res.status(500).json(res.error || 'Some error occurred while creating the contact.');
       }
