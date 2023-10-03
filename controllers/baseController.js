@@ -15,7 +15,7 @@ baseController.findOne =  async function(req, res) {
 }
 
 baseController.insertNew = async function(req, res){
-    let newContact = await utils.insertOne();
+    let newContact = await utils.insertOne(req);
     console.log(newContact)
     if (newContact) {
         res.status(201).send(newContact.insertedId);
@@ -27,7 +27,7 @@ baseController.insertNew = async function(req, res){
 
 baseController.updateContact = async function(req, res){
     let personId = req.params._id;
-    let updatedContact = await utils.updateOne(personId)
+    let updatedContact = await utils.updateOne(personId, req)
     if (updatedContact > 0) {
         res.status(204).json(res.message || "Contact successfully updated");
       } else {

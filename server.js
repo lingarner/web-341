@@ -4,12 +4,15 @@
 //imports the express module from 
 const express = require('express');
 
+const bodyParser = require('body-parser');
+
 
 //allows us to access the express package and use the functions in it
 const app = express();
 const  baseController = require('./controllers/baseController')
 
 app.set('view engine', 'ejs');
+app.use(bodyParser.json())
 
 
 

@@ -1,3 +1,5 @@
+
+const bodyParser = require('body-parser');
 const { MongoClient, ObjectId } = require('mongodb');
 
 require('dotenv').config();
@@ -49,8 +51,10 @@ async function getOnePerson(id){
   }
 }
 
-async function insertOne() {
+async function insertOne(req) {
     console.log('in insertOne');
+    console.log(req);
+
     const client = new MongoClient(uri);
 
   
@@ -62,14 +66,14 @@ async function insertOne() {
 
     
     const dataInput = {
-      firstName: "LINDSAY",
-      lastName: "GARNER",
-      email: "joe@gmail.com",
-      birthday: "June 19, 1996",
-      favoriteColor: "blue"
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      birthday: req.body.birthay,
+      favoriteColor: req.body.favoriteColor
     };
     
-    const cursor = await collection.insertOne(dataInput);
+    const cursor = await collection.insertOne(await dataInput);
     
     return cursor
 
@@ -80,9 +84,9 @@ async function insertOne() {
   }
 }
 
-async function updateOne(id){
+async function updateOne(id, req){
+  // console.log(req)
   const client = new MongoClient(uri);
-  // console.log(id)
   
   try {
     await client.connect();
@@ -92,11 +96,15 @@ async function updateOne(id){
 
     const filter = { _id: new ObjectId(id) };
     const update = {
-      $set: {
-        favoriteColor: 'yellow',
-      }
-    }
-    const contact = await collection.updateOne(filter, update);
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      birthday: req.body.birthday,
+      favoriteColor: req.body.favoriteColor
+    
+  }
+  console.log(update)
+    const contact = await collection.replaceOne(filter, update);
     return contact.modifiedCount
     
   } catch (error) {
