@@ -1,0 +1,180 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "My API",
+    "description": "Description",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/contacts/{_id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Select and update a specific contact",
+            "format": "hex"
+          },
+          {
+            "name": "contact",
+            "in": "body",
+            "description": "Updated contact data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "type": "string",
+                  "example": "NewFirstName"
+                },
+                "lastName": {
+                  "type": "string",
+                  "example": "NewLastName"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "new@email.com"
+                },
+                "birthday": {
+                  "type": "string",
+                  "example": "January 1, 2000"
+                },
+                "favoriteColor": {
+                  "type": "string",
+                  "example": "NewColor"
+                }
+              },
+              "required": [
+                "firstName",
+                "lastName",
+                "email",
+                "birthday",
+                "favoriteColor"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/contacts": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "contact",
+            "in": "body",
+            "description": "Insert a new Contact",
+            "required": true,
+            "format": "json",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "type": "string",
+                  "example": "NewFirstName"
+                },
+                "lastName": {
+                  "type": "string",
+                  "example": "NewLastName"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "new@email.com"
+                },
+                "birthday": {
+                  "type": "string",
+                  "example": "January 1, 2000"
+                },
+                "favoriteColor": {
+                  "type": "string",
+                  "example": "NewColor"
+                }
+              },
+              "required": [
+                "firstName",
+                "lastName",
+                "email",
+                "birthday",
+                "favoriteColor"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    }
+  }
+}

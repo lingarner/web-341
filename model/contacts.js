@@ -69,7 +69,7 @@ async function insertOne(req) {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
-      birthday: req.body.birthay,
+      birthday: req.body.birthday,
       favoriteColor: req.body.favoriteColor
     };
     
@@ -85,7 +85,6 @@ async function insertOne(req) {
 }
 
 async function updateOne(id, req){
-  // console.log(req)
   const client = new MongoClient(uri);
   
   try {
@@ -103,7 +102,6 @@ async function updateOne(id, req){
       favoriteColor: req.body.favoriteColor
     
   }
-  console.log(update)
     const contact = await collection.replaceOne(filter, update);
     return contact.modifiedCount
     
@@ -116,7 +114,6 @@ async function updateOne(id, req){
 
 async function deleteOne(id){
   const client = new MongoClient(uri);
-  // console.log(id)
   
   try {
     await client.connect();

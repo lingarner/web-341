@@ -2,17 +2,21 @@ const express = require('express');
 const router = new express.Router();
 const baseController = require('../controllers/baseController');
 const manageController = require('../controllers/manageController')
+const swagger = require('./swagger.js')
+
+// swagger ui 
+router.use("/", swagger)
 
 // home view route
-router.get("/", manageController.buildHome)
-router.get("/new-contact-form", manageController.buildNewContact)
-router.get("/delete-contact", manageController.buildDeleteContact)
+// router.get("/", manageController.buildHome)
+// router.get("/new-contact-form", manageController.buildNewContact)
+// router.get("/delete-contact", manageController.buildDeleteContact)
 
 
 // CONTACT ROUTES
 
 // add a contact to the db
-router.get("/contacts/newContact", baseController.findOne);
+// router.get("/contacts/newContact", baseController.findOne);
 
 // return specific id info from db
 router.get("/contacts/:_id", baseController.findOne);

@@ -15,6 +15,22 @@ baseController.findOne =  async function(req, res) {
 }
 
 baseController.insertNew = async function(req, res){
+      /*    
+        #swagger.parameters['contact'] = {
+        in: 'body',
+        description: 'Insert a new Contact',
+        required: true,
+        type: 'string',
+        format: 'json',
+        schema: {
+            $firstName: 'NewFirstName',
+            $lastName: 'NewLastName',
+            $email: 'new@email.com',
+            $birthday: 'January 1, 2000',
+            $favoriteColor: 'NewColor'
+          }
+        }
+      } */
     let newContact = await utils.insertOne(req);
     console.log(newContact)
     if (newContact) {
@@ -26,6 +42,29 @@ baseController.insertNew = async function(req, res){
 }
 
 baseController.updateContact = async function(req, res){
+  /* 
+  #swagger.parameters['_id'] = {
+    in: 'path',
+    description: 'Select and update a specific contact',
+    required: true,
+    type: 'string',
+    format: 'hex'
+  }
+  #swagger.parameters['contact'] = {
+    in: 'body',
+    description: 'Updated contact data',
+    required: true,
+    type: 'json',
+    schema: {
+      $firstName: 'NewFirstName',
+      $lastName: 'NewLastName',
+      $email: 'new@email.com',
+      $birthday: 'January 1, 2000',
+      $favoriteColor: 'NewColor'
+    }
+  }
+*/
+
     let personId = req.params._id;
     let updatedContact = await utils.updateOne(personId, req)
     if (updatedContact > 0) {
