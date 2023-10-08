@@ -28,8 +28,38 @@ POST http://localhost:3000/contacts HTTP/1.1
 
 ###
 
+POST https://web-341.onrender.com/contacts HTTP/1.1
+
+###
+
 PUT http://localhost:3000/contacts/650e0476ce55ff491aaaea4e HTTP/1.1
 
 ###
 
+PUT https://web-341.onrender.com/contacts/650e0476ce55ff491aaaea4e HTTP/ 1.1
+
+###
+
 DELETE http://localhost:3000/contacts/650e0476ce55ff491aaaea4e HTTP/1.1
+
+###
+
+DELETE https://web-341.onrender.com/contacts/650e0476ce55ff491aaaea4e HTTP/ 1.1
+
+(used from SWAGGER UI)
+
+###
+
+GET https://web-341.onrender.com/contacts/650e04e4ce55ff491aaaea4e HTTP/ 1.1
+
+###
+
+PUT https://web-341.onrender.com/contacts/650e04e4ce55ff491aaaea4e HTTP/ 1.1
+
+###
+
+DELETE https://web-341.onrender.com/contacts/650e04e4ce55ff491aaaea4e HTTP/ 1.1
+
+###
+
+GET https://web-341.onrender.com/contacts HTTP/ 1.1
