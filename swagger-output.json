@@ -13,7 +13,7 @@
   "paths": {
     "/contacts/{_id}": {
       "get": {
-        "description": "",
+        "description": "Retrives the ",
         "parameters": [
           {
             "name": "_id",
@@ -88,7 +88,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Deletes the ",
         "parameters": [
           {
             "name": "_id",
@@ -109,7 +109,7 @@
     },
     "/contacts": {
       "get": {
-        "description": "",
+        "description": "Retrives all contacts from the database",
         "responses": {
           "200": {
             "description": "OK"

@@ -3,12 +3,18 @@ const baseController = {}
 
 
 baseController.showAllPeople =  async function(req, res) {
+    /*    
+    #swagger.description = 'Retrives all contacts from the database' 
+    */
      let peopleListed = await utils.getAllPeople();
      console.log(peopleListed)
      res.send(peopleListed)
 }
 
 baseController.findOne =  async function(req, res) {
+    /*    
+    #swagger.description = 'Retrives the 'id' specified by user from the database' 
+    */
     let personId = req.params._id;
     let foundPerson = await utils.getOnePerson(personId);
     res.send(foundPerson || null)
@@ -75,6 +81,9 @@ baseController.updateContact = async function(req, res){
 }
   
 baseController.deleteContact = async function(req, res){
+    /*    
+    #swagger.description = 'Deletes the 'id' specified by user from the database' 
+    */
     let personId = req.params._id;
     let deletedContact = await utils.deleteOne(personId);
     if (deletedContact > 0) {
